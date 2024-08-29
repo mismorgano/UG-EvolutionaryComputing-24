@@ -15,8 +15,9 @@ function de_joung(v)
     sum(v .^ 2)
 end
 
-function rastrigin4(v)
-    x₁, x₂, x₃, x₄ = v
-
+function rastrigin(v)
+    A = 10
+    n = length(v)
+    A * n + sum(v .^ 2 - A * cos.(2 * pi .* (v)))
 end
 
