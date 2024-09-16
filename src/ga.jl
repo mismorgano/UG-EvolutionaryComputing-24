@@ -62,9 +62,11 @@ function crossover(parent1, parent2, type)
 
 end
 
-function inttobitarray(n, nbits, interval)
+function tobitarray(n, nbits, interval)
     a, b = interval
+    
     @assert a < b "The interval should be valid"
+    @assert all(a <= n <= b) "n should be in interval"
     n * (2^nbits - 1) / (b - a) |> ceil |> Int |> x -> digits(x, base=2, pad=nbits) |> reverse |> BitArray
 end
 
